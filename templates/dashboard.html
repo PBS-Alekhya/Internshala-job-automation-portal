@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <p>Welcome! Here are your applied jobs:</p>
+        <ul>
+            {% for job in jobs %}
+                <li>{{ job.job_title }} at {{ job.company_name }} (Applied on {{ job.applied_date }})</li>
+            {% endfor %}
+        </ul>
+        <a href="/apply_job"><button>Apply for a New Job</button></a>
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+</body>
+</html>
